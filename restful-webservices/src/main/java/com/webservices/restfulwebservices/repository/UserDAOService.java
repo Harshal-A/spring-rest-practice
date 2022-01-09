@@ -18,17 +18,17 @@ public class UserDAOService {
 	private static List<User> users=new ArrayList<>();
 	private static int userCount=3;
 	
-	static{
-		users.add(new User(1, "Aaron", new Date()));
-		users.add(new User(2, "Barack", new Date()));
-		users.add(new User(3, "Charlie", new Date()));
-		
-		List<Post> posts=new ArrayList();
-		posts.add(new Post(1,"aaron", "aaron@gnc.com", "GNC gives 30% off!!"));
-		posts.add(new Post(2,"barack", "barack@on.com", "Original!!"));
-		posts.add(new Post(3,"cameron", "cameron@muscleblaze.com", "I am ignored!!"));
-		users.get(0).setPosts(posts);
-	}
+//	static{
+//		users.add(new User(1, "Aaron", new Date()));
+//		users.add(new User(2, "Barack", new Date()));
+//		users.add(new User(3, "Charlie", new Date()));
+//		
+//		List<Post> posts=new ArrayList();
+//		posts.add(new Post(1,"aaron", "aaron@gnc.com", "GNC gives 30% off!!"));
+//		posts.add(new Post(2,"barack", "barack@on.com", "Original!!"));
+//		posts.add(new Post(3,"cameron", "cameron@muscleblaze.com", "I am ignored!!"));
+//		users.get(0).setPosts(posts);
+//	}
 	
 	
 	public List<User> findAll(){

@@ -1,29 +1,33 @@
 package com.webservices.restfulwebservices.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class Post {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String name;
-	private String email;
-	private String content;
 	
-	public Post(String name, String email, String content) {
-		this.name = name;
-		this.email = email;
-		this.content = content;
-	}
+	private String description;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	private User user;
 	
 	
-	
-	public Post(Integer id, String name, String email, String content) {
+	public Post(Integer id, String description, User user) {
 		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.content = content;
+		this.description = description;
+		this.user = user;
 	}
-
-
-
 	public Post() {
 		// TODO Auto-generated constructor stub
 	}
@@ -33,25 +37,23 @@ public class Post {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public String getEmail() {
-		return email;
+	public User getUser() {
+		return user;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public String getContent() {
-		return content;
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", description=" + description + "]";
 	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	
+
 	
 	
 }

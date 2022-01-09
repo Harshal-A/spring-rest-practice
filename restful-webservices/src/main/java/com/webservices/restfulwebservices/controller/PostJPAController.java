@@ -19,7 +19,7 @@ import com.webservices.restfulwebservices.repository.PostDAOService;
 import com.webservices.restfulwebservices.repository.UserDAOService;
 
 @RestController
-public class PostController {
+public class PostJPAController {
 	
 	@Autowired
 	private PostDAOService postDAOService;

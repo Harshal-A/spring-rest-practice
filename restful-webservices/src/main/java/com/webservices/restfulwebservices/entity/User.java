@@ -4,12 +4,21 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+@Entity
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@NotBlank
@@ -19,7 +28,7 @@ public class User {
 	@Past
 	private Date birthDate;
 	
-	
+	@OneToMany(mappedBy = "user")
 	private List<Post> posts;
 	
 	
@@ -59,17 +68,17 @@ public class User {
 		this.posts = posts;
 	}
 	
-	public Post savePost(Post post) {
-		if(getPosts()==null) {
-			posts=new ArrayList<Post>();
-		}
-		posts.add(post);
-		return post;
-	}
-	
-	public Post retrievePost(int postId) {
-		return getPosts().get(postId-1);
-	}
+//	public Post savePost(Post post) {
+//		if(getPosts()==null) {
+//			posts=new ArrayList<Post>();
+//		}
+//		posts.add(post);
+//		return post;
+//	}
+//	
+//	public Post retrievePost(int postId) {
+//		return getPosts().get(postId-1);
+//	}
 	
 	@Override
 	public String toString() {
